@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Único de Matrícula - Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel='stylesheet' href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css'> <!-- Icono de ojito ocultar contraseña-->
+</head>
+<body>
+    <!-- Fondo de portada -->
+    <div class="fondo">
+        <nav class="volver">
+            <a href="{{ url_for('inicio_de_seccion_bp.inicio_de_seccion') }}" class="btn_volver">← Volver</a>
+        </nav>
+    <!-- Formulario de Registro -->
+    <nav class="nav_inicio_seccion">
+        <h1 class="nav__title">Registrar al Alumno</h1>
+
+        <form action="{{ url_for('registrar_alumnos_bp.registrar_alumnos') }}" method="POST" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" required>
+
+            <label for="imagen">Imagen:</label>
+            <input type="file" name="imagen" id="imagen" accept="image/*">
+
+            <label for="gmail">Correo electrónico:</label>
+            <input type="gmail" name="gmail" id="gmail" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <div class="ojito">
+                <input type="password" name="contrasena" id="contrasena" required>
+                <i class='bx bx-eye' id="togglePassword"></i>
+            </div>
+
+            <label for="codigo">Código:</label>
+            <input type="number" name="codigo" id="codigo" required>
+
+            <label for="facultad">Facultad:</label>
+            <select name="facultad" required>
+                <option value="1">Facultad de Farmacia y Bioquímica</option>
+                <option value="2">Facultad de Medicina Veterinaria</option>
+                <option value="3">Facultad de Odontología</option>
+                <option value="4">Facultad de Psicología</option>
+                <option value="5">Facultad de Ingeniería de Minas</option>
+                <option value="6">Facultad de Ingeniería Metalúrgica</option>
+                <option value="7">Facultad de Medicina</option>
+                <option value="8">Facultad de Enfermería</option>
+                <option value="9">Facultad de Obstetricia</option>
+                <option value="10">Facultad de Tecnología Médica</option>
+                <option value="11">Facultad de Nutrición</option>
+                <option value="12">Facultad de Ciencias Físicas</option>
+                <option value="13">Facultad de Ciencias Biológicas</option>
+                <option value="14">Facultad de Ciencias Matemáticas</option>
+                <option value="15">Facultad de Ingeniería Geológica</option>
+                <option value="16">Facultad de Ingeniería Minera</option>
+                <option value="17">Facultad de Ingeniería Geográfica</option>
+                <option value="18">Facultad de Ingeniería Industrial</option>
+                <option value="19">Facultad de Ingeniería Electrónica y Eléctrica</option>
+                <option value="20">Facultad de Ingeniería de Sistemas e Informática</option>
+                <option value="21">Facultad de Ingeniería Civil</option>
+                <option value="22">Facultad de Ingeniería Ambiental</option>
+                <option value="23">Facultad de Ingeniería de Telecomunicaciones</option>
+            </select>
+
+            <label for="programa">Programa:</label>
+            <input type="text" name="programa" id="programa" >
+
+            <label for="especialidad">Especialidad:</label>
+            <input type="text" name="especialidad" id="especialidad">
+
+            <label for="periodo_academico">Periodo Académico:</label>
+            <input type="number" name="periodo_academico" id="periodo_academico" required>
+
+            <input type="submit" value="Registrarse" class="btn_registrarse">
+        </form>
+    </nav>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/ojito.js')}}"></script>
+</body>
+</html>

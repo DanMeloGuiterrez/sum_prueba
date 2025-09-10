@@ -1,0 +1,29 @@
+{% extends 'presentacion.html' %} <!-- Se va a heredar de la plantilla presentacion-->
+{% block title %} Pagina de Inicio {% endblock %}
+
+{% block transision_de_imagenes %}
+<!-- Transision de imagenes-->
+
+    <div class="imagenes_transision">
+        <div class="atras_carrucel">
+            <img id="atras" src="{{ url_for('static', filename='img/Imagenes/atras.svg')}}"  loading="lazy">
+        </div>
+
+        <div class="imagenes_carrucel">
+            <div id="img" class="contenedor_imagen">
+                <img class="img" src="{{ url_for('static', filename='img/Imagenes/imagen1.jpg')}}" loading="lazy">
+                
+                <div class="texto_imagen">
+                    <p>CRONOGRAMA DE ACTIVIDADES ACADÉMICAS 2025 - PREGRADO</p>
+                    <p style="font-size: 10px;">Cursos de Verano 2025-0, Año Académico 2025 (Anual) y los Semestres Académicos 2025-I y 2025-II</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="adelante_carrucel" id="adelante">
+            <img src="{{ url_for('static', filename='img/Imagenes/adelante.svg')}}" loading="lazy">
+        </div>
+    </div>
+
+    <div class="puntos" id="puntos"></div>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'presentacion.html' %} <!-- Se va a heredar de la plantilla presentacion-->
+{% block title %} Portafolio {% endblock %}
+
+{% block portafolio %}
+<!-- portafolio -->
+    <!-- Primera fila-->
+    <section class="portafolio">
+        <div class="portafolio_contenido">
+            <h1>DAN CALEB MELO GUTIERREZ</h1>
+            <h3>Futuro Licenciado en Computación Científica - Alumno UNMSM</h3>
+            <div class="redes">
+                <a href="https://www.youtube.com/@danmelo" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/dan.melo.14" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.me/51949973678" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://x.com/home?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://pe.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    <div class="portafolio_imagen">
+        <img src="/static/img/Imagenes/foto_portada.png" alt="Foto de perfil">
+    </div>
+    </section>
+
+    <!-- Segunda fila-->
+    <section class="portafolio segunda_parte">
+        <div class="portafolio_imagen">
+            <img src="/static/img/Imagenes/foto_portafolio_1.jpg">
+        </div>
+
+        <div class="portafolio_contenido_derecha">
+            <h1>Acerca de mí  </h1>
+            <p>Hola, mi nombre es Dan Melo, soy un joven estudiando en la Facultad de Matemáticas de la UNMSM. Estoy en la carrera de Computación Científica, actualmente cursando el 6to ciclo en 2025. Esta página la hago para el curso de Sistemas Operativos.</p>
+            <p>Ingresé en el año 2022, por lo tanto pertenezco a la base 22. Este fue mi tercer intento para ingresar a la universidad.</p>
+        </div>
+    </section>
+
+    <!-- Tercer fila -->
+    <section class="portafolio_skills">
+        <h1>Skills / Habilidades</h1>
+        <p>Algunas capacidades que actualmente manejo en 2025.</p>
+
+        <!-- Contenedor para lenguajes y cursos -->
+        <div class="skills_contenedor">
+            <div class="portafolio_lenguajes">
+                <h2>Lenguajes</h2>
+
+                <div class="skill">
+                    <span>HTML</span>
+                    <div class="progress html"></div>
+                    <span class="percent">80%</span>
+                </div>
+
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="progress js"></div>
+                    <span class="percent">20%</span>
+                </div>
+
+                <div class="skill">
+                    <span>Python</span>
+                    <div class="progress python"></div>
+                    <span class="percent">60%</span>
+                </div>
+
+                <div class="skill">
+                    <span>Java</span>
+                    <div class="progress java"></div>
+                    <span class="percent">30%</span>
+                </div>
+
+                <div class="skill">
+                    <span>C++</span>
+                    <div class="progress c"></div>
+                    <span class="percent">60%</span>
+                </div>
+            </div>
+
+            <div class="cursos">
+                <h2>Cursos Favoritos</h2>
+                <nav class="box_cursos">
+                    <span>Cálculo (I, II, III, IV)</span>
+                </nav>
+                <nav class="box_cursos">
+                    <span>Programación (Algorítmica, Estructura, BD, Sistemas)</span>
+                </nav>
+                <nav class="box_cursos">
+                    <span>Computación Gráfica</span>
+                </nav>
+                <nav class="box_cursos">
+                    <span>Inteligencia Artificial</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- Cuarta fila -->
+    <section class="portafolio_skills">
+        <h1>Mi Servicios o futuras especialidades</h1>
+        <p>Futuro Licenciado en Computacion Cientifica en el Pais de Perú</p>
+        <div class="servicios_especialidades">
+            <nav class="box_contacto1">
+                <span>Desarrollador Web</span>
+                <p>es un profesional encargado de crear, mantener y optimizar páginas y aplicaciones web. Para ello, se sirven de lenguajes de programación como HTML, CSS, JavaScript, PHP y otros</p>
+            </nav>
+            <nav class="box_contacto1">
+                <span> Data Science </span>
+                <p>Campo multidisciplinario que utiliza métodos científicos, procesos, algoritmos y sistemas para extraer conocimiento y valor de datos estructurados y no estructurados. </p>
+            </nav>
+            <nav class="box_contacto1">
+                <span>Simulaciones y Gráficos</span>
+                <p>Las simulaciones son modelos virtuales de un sistema o proceso del mundo real, creados mediante software para imitar su comportamiento a lo largo del tiempo. </p>
+            </nav>
+            <nav class="box_contacto1">
+                <span>Sistemas Inteligentes</span>
+                <p>Programas de computadora o máquinas capaces de percibir su entorno, procesar información y tomar decisiones</p>
+            </nav>
+            <nav class="box_contacto1">
+                <span>Machine Learning</span>
+                <p>Es una rama de la IA que permite a las computadoras aprender de los datos, identificar patrones y tomar decisiones con mínima intervención humana</p>
+            </nav>
+            <nav class="box_contacto1">
+                <span>Desarrollador de videojuegos y aplicaciones móviles</span>    
+                <p>Profesional que se encarga de crear y programar videojuegos para diversas plataformas, como computadoras, consolas o dispositivos móviles</p>
+            </nav>
+        </div>
+        
+    </section>
+
+    
+{% endblock %}

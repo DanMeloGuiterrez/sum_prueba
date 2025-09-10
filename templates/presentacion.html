@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> SUM -  {% block title %}{% endblock %} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--Iconos de Redes-->
+</head>
+<body>
+
+    <!-- Mini Menu superior / encabezado -->
+    <nav class="nav">
+        <!-- Logo y nombre de la empresa -->
+        <img src="{{ url_for('static', filename='img/logo_sum.png') }}" class="nav__logo" >
+        
+        <ul class="nav__list_del_menu">
+            <li class="nav__item_del_menu"><a href="{{ url_for('index') }}" class="nav__link_menu">Inicio</a></li>
+            <li class="nav__item_del_menu"><a href="{{ url_for('portafolio') }}" class="nav__link_menu">Portafolio</a></li>
+            <li class="nav__item_del_menu"><a href="{{ url_for('QuienesSomos') }}" class="nav__link_menu">Quienes Somos</a></li>
+            <li class="nav__item_del_menu"><a href="{{ url_for('EnlacesInternos') }}" class="nav__link_menu">Enlaces Internos</a></li>
+            <li class="nav__item_del_menu"><a href="{{ url_for('EnlacesExternos') }}" class="nav__link_menu">Enlaces Externos</a></li>
+            <li class="nav__item_del_menu"><a href="{{ url_for('Contacto') }}" class="nav__link_menu">Contacto </a></li>
+            
+            
+            <!-- Inicio de seccion -->
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('inicio_de_seccion_bp.inicio_de_seccion') }}" class="nav__link_menu">
+                    Inicio de Sesión 
+                </a>
+            </li>
+        </ul>
+        
+    </nav>
+
+    <main>
+        {% block transision_de_imagenes %}{% endblock %}
+
+        {% block portafolio %}{% endblock %}
+        {% block quienes_somos %}{% endblock %}
+        {% block enlaces_internos %}{% endblock %}
+        {% block enlaces_externos %}{% endblock %}
+        {% block contacto %}{% endblock %}
+    </main>
+
+
+    <!-- Pie de Pagina -->
+    <footer>
+        <div class="footer-container">
+            <section class="footer-left">
+                <img src="{{ url_for('static', filename='img/logo_sum2.png')}}" class="imagen_1">
+            </section>
+            <section class="footer-center">
+                <p>Calle Germán Amézaga N° 375</p>
+                <p>Pabellón Tecnología de la Información y Telecomunicaciones,</p>
+                <p>Ciudad Universitaria, Lima 1.</p>
+
+                <p>Central Telefónica:
+                619 7000 - Anexo 7906</p>
+                <p>soporte.sum@unmsm.edu.pe</p>
+            </section>
+            <section class="footer-right">
+                <p>Horario de atención:</p>
+                <p>Lunes a Viernes (8:00 a.m. a 1:00 p.m y 2:00 p.m. a 4:00 p.m.)</p>
+                <p>Recepción de Documentos:</p>
+                <p>Lunes a Viernes (8:00 a.m. a 1:00 p.m y 2:00 p.m. a 3:45 p.m.)</p>
+                <p>Preguntas Frecuentes</p>
+                
+            </section>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+</body>
+</html>

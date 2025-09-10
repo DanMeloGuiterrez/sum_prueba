@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Único de Matrícula - {{ nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="fondo_alumnos">
+        
+    <!-- Encabezado -->
+    <nav class="nav">
+        <ul class="nav__list_del_menu">
+            <li class="nav__item_del_menu">
+                <a href="" class="nav__link_menu">{{ apellido }}, {{ nombre }}</a>
+            </li>
+
+            <!-- Cerrar Sesión -->
+            
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('cerrar_sesion_bp.cerrar_sesion') }}" class="nav__link_menu">Salir</a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="contenedor-cuadros">
+        
+    <nav class="informacion_alumno">
+
+        <!-- Sección superior: imagen + nombre -->
+        <div class="perfil-alumno">
+            <div class="columna-imagen">
+                <img src="{{ url_for('static', filename='img/' ~ imagen) }}" 
+                    alt="{{ nombre }}" 
+                    class="foto-alumno">
+            </div>
+            <div class="columna-nombre">
+                <h2>{{ nombre }} , {{ apellido }}</h2>
+            </div>
+        </div>
+
+        <!-- Sección inferior: datos en cuadritos -->
+        <div class="datos-alumno">
+            <div class="dato-box">
+                <span class="subtitulo">Código:</span> 
+                <span class="dato">{{ codigo }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Facultad:</span> 
+                <span class="dato">{{ id_facultad }} - {{ facultad }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Programa:</span> 
+                <span class="dato">{{ programa }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Especialidad:</span> 
+                <span class="dato">{{ especialidad }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Periodo Académico:</span> 
+                <span class="dato">{{ periodo }}</span>
+            </div>
+        </div>
+    </nav>
+    
+        <nav class="informacion_alumno">
+            <h1>Información Personal Académica</h1>
+            <span>- Nombre, Fecha y Lugar de Nacimiento, Estado Civil,Sexo</span><br>
+            <span>- Domicilio, Teléfono y Correo Electrónico</span><br>
+            <span>- Facultad, Programa Académico, Especialidad</span><br>
+            <span>- Plan de Estudios, Año y Modalidad de Ingreso</span><br>
+            <span>- Situación Académica y Estado de Permanencia</span><br>
+            <span>- Promedio Ponderado, Número de Períodos Matriculados</span>
+        </nav>
+
+        <nav class="informacion_alumno">
+            <h1>Historial Académico y Calificaciones</h1>
+            <span>- Períodos Académicos Matriculados, Plan de Estudios</span><br>
+            <span>- Ciclo, Asignatura, Creditaje, Tipo Asignatura</span><br>
+            <span>- Calificación, Sección,  Tipo y Número de Acta</span>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Reporte Pre-Matrícula</h1>
+            <span>- Prioridad de Matrícula</span><br>
+            <span>- Plan, Código y Nombre Descriptivo, Ciclo, Creditaje y Repitencias de la Asignatura</span><br>
+            <span>- Etapa del Proceso de Matrícula</span>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Matrícula Vía Internet</h1>
+            <span>- Período Académico Vigente</span><br>
+            <span>- Fecha, Usuario, Tipo de Matrícula</span><br>
+            <span>- Ciclo/Año, Código, Nombre, Tipo Asignatura</span><br>
+            <span>- Sección Matriculada, Docente</span><br>
+            <span>- Total de Cursos y Créditos Matriculados</span>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Programación de Cursos</h1>
+            <span>- Asignatura, Creditaje, Horas Teoría, Práctica, Laboratorio</span><br>
+            <span>- Sección, Docente, Turno, Aula, Horario</span><br>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Plan de Estudios</h1>
+            <span>- Asignaturas, Creditaje y Especificaciones del Plan</span><br>
+            <span>- Ciclo/Año, Código, Nombre, Tipo, Creditaje Asignatura</span><br>
+            <span>- Código, Nombre Asignatura Pre-Requisito</span><br>
+            <span>- Grupo</span>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Reporte Matrícula</h1>
+            <span>- Registro de Matrícula del Período Académico Vigente</span><br>
+            <span>- Fecha, Usuario, Tipo de Matrícula</span><br>
+            <span>- Ciclo/Año, Código, Nombre, Tipo Asignatura</span><br>
+            <span>- Sección Matriculada, Docente</span>
+        </nav>
+        <nav class="informacion_alumno">
+            <h1>Reporte de Deudas</h1>
+            <span>- Relación de deudas</span><br>
+            <span>- Fecha, Usuario, Tipo de Matrícula</span><br>
+            <span>- Ciclo/Año, Código, Nombre</span><br>
+            <span>- Monto de deuda</span>
+        </nav>
+    </div>
+</body>
+</html>
