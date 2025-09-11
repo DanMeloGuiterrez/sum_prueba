@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Único de Matrícula - {{ nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="fondo_alumnos">
+        
+    <!-- Encabezado -->
+    <nav class="nav">
+        <ul class="nav__list_del_menu">
+            <li class="nav__item_del_menu">
+                <a href="" class="nav__link_menu">{{ apellido }}, {{ nombre }}</a>
+            </li>
+
+            <!-- Cerrar Sesión -->
+            
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('cerrar_sesion_bp.cerrar_sesion') }}" class="nav__link_menu">Salir</a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="contenedor-cuadros">
+        
+    <nav class="informacion_alumno">
+
+        <!-- Sección superior: imagen + nombre -->
+        <div class="perfil-alumno">
+            <div class="columna-imagen">
+                <img src="{{ url_for('static', filename='img/' ~ imagen) }}" 
+                    alt="{{ nombre }}" 
+                    class="foto-alumno">
+            </div>
+            <div class="columna-nombre">
+                <h1>Bienvenido, Administrador</h1>
+                <h2>{{ nombre }} , {{ apellido }}</h2>
+            </div>
+        </div>
+
+        <!-- Sección inferior: datos en cuadritos -->
+        <div class="datos-alumno">
+            <div class="dato-box">
+                <span class="subtitulo">Código:</span> 
+                <span class="dato">{{ codigo }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Facultad:</span> 
+                <span class="dato">{{ id_facultad }} - {{ facultad }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Programa:</span> 
+                <span class="dato">{{ programa }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Especialidad:</span> 
+                <span class="dato">{{ especialidad }}</span>
+            </div>
+
+            <div class="dato-box">
+                <span class="subtitulo">Periodo Académico:</span> 
+                <span class="dato">{{ periodo }}</span>
+            </div>
+        </div>
+    </nav>
+    
+        <nav class="informacion_alumno">
+        <h1>Funciones del Administrador</h1>
+
+            <h1> Visualizar Alumnos </h1>
+            <li class="nav__item_categoria">
+                <a href="{{ url_for('visualizar_alumnos_bp.visualizar_alumnos') }}" class="nav__link_menu" >Alumnos</a>
+            </li>
+            <h1> Registrar nuevo Alumno </h1>
+            <li class="nav__item_categoria">
+                <a href="{{ url_for('registrar_alumnos_bp.registrar_alumnos') }}" class="nav__link_menu" >Registrar Alumnos</a>
+            </li>
+        </nav>
+        
+    </div>
+</body>
+</html>

@@ -617,3 +617,61 @@ select[name="facultad"] {
     color: #323cef;
     font-size: 16px;
 }
+
+/* Funciones del admin */
+.nav__item_categoria {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 15px;
+
+    flex-direction: column; /* Para alinear imagen y texto */
+    width: 91%; /* Ajusta el ancho */
+    height: auto; /* Ajusta la altura */
+
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; /* Agrega animación */
+}
+
+.nav__item_categoria:hover {
+    background-color: rgb(44, 240, 247); /* Cambia este color al que prefieras */
+    transform: scale(1.05); /* Efecto */
+}
+
+/*Visualizar alumnos*/
+
+.nav_visualizar_datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background-color: #c2cff5;
+    width: 90%;
+    margin: 50px auto;
+    font-size: 25px;
+    
+}
+.nav__tabla{
+    background-color: brown;color: aliceblue;
+}
+
+.table {
+    width: 90%;  /* antes estaba en 100% */
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 20px; /* más pequeño que el 25px heredado */
+}
+
+.table th, .table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+/* Posiciona el botón cerrar sesión abajo */
+.cerrar_sesion_abajo {
+    position: relative;
+    padding-bottom: 10px;
+    
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Único de Matrícula - Alumnos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+        
+    <!-- Encabezado -->
+    <nav class="nav">
+        <ul class="nav__list_del_menu">
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('panel_admin_bp.panel_admin') }}" class="nav__link_menu"> {{ apellido }}, {{ nombre }}</a>
+            </li>
+
+            <!-- Cerrar Sesión -->
+            
+            <li class="nav__item_del_menu">
+                <a href="{{ url_for('cerrar_sesion_bp.cerrar_sesion') }}" class="nav__link_menu">Salir</a>
+            </li>
+            
+        </ul>
+    </nav>
+    
+    <div class="nav_visualizar_datos">
+        <h1 class="nav__title">Visualizar Alumnos </h1>
+        <br>
+
+        <table class="table">
+            <thead class="nav__tabla">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Imagen</th>
+                <th style="width: 15%;">Email</th>
+                <th>Codigo</th>
+                <th>Facultad</th>
+                <th>programa</th>
+                <th>especialidad</th>
+                <th>periodo_academico</th>
+                <th>id_tipo_usuario</th>
+            </thead>
+
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td>{{ alumno.id_alumno }}</td>
+                    <td>{{ alumno.nombre_alumno }}</td>
+                    <td>{{ alumno.apellido_alumno }}</td>
+                    <td>
+                        <img src="{{ url_for('static', filename='img/' ~ alumno['imagen']) }}" 
+                            alt="foto de {{ alumno['nombre_alumno'] }}" 
+                            width="80" height="80">
+                    </td>
+                    <td>{{ alumno.email }}</td>
+                    <td>{{ alumno.codigo }}</td>
+                    <td>{{ alumno.nombre_facultad }}</td>
+                    <td>{{ alumno.programa }}</td>
+                    <td>{{ alumno.especialidad }}</td>
+                    <td>{{ alumno.periodo_academico }}</td>
+                    <td>{{ alumno.id_tipo_usuario }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    
+</body>
+</html>

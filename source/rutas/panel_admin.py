@@ -2,12 +2,12 @@ from flask import Blueprint, url_for, redirect, render_template, session
 from source.database.database import obtener_conexion
 
 # Define el blueprint
-panel_alumno_bp = Blueprint('panel_alumno_bp', __name__)
+panel_admin_bp = Blueprint('panel_admin_bp', __name__)
 
-@panel_alumno_bp.route('/panel_alumno')
-def panel_alumno():
-    # Verificar si el usuario es alumno
-    if 'rol' in session and session['rol'] == 2:  
+@panel_admin_bp.route('/panel_admin')
+def panel_admin():
+  
+    if 'rol' in session and session['rol'] == 1:  
         conexion = obtener_conexion()
         cursor = conexion.cursor()
 
@@ -28,7 +28,7 @@ def panel_alumno():
         imagen = session.get('imagen') if session.get('imagen') else 'default.png'
 
         return render_template(
-            'funciones_de_la_pagina/panel_alumno.html',
+            'funciones_de_la_pagina/panel_admin.html',
             nombre=session.get('nombre'),
             apellido=session.get('apellido'),
             imagen=imagen,
@@ -41,5 +41,4 @@ def panel_alumno():
             email=session.get('email')
         )
     
-    # Si no es alumno o no está logueado 
     return redirect(url_for('inicio_de_seccion_bp.inicio_de_seccion'))

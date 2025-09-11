@@ -18,7 +18,7 @@ def inicio_de_seccion():
         cursor = conexion.cursor(buffered=True)  
         cursor.execute("""
             SELECT id_alumno, nombre_alumno, apellido_alumno, imagen, email, contrasena,
-                   codigo, facultad_id, programa, especialidad, periodo_academico
+                   codigo, facultad_id, programa, especialidad, periodo_academico, id_tipo_usuario
             FROM alumno WHERE email = %s
         """, (email,)) # Consulta al alumno que tenga el email ingresado
 
@@ -42,10 +42,15 @@ def inicio_de_seccion():
                 session['programa'] = fila_alumno[8]
                 session['especialidad'] = fila_alumno[9]
                 session['periodo_academico'] = fila_alumno[10]
+                session['rol'] = fila_alumno[11]
 
-                # Redirigir al panel del alumno
-                
-                return redirect(url_for('panel_alumno_bp.panel_alumno'))
+                # Redirección según el rol
+                if session['rol'] == 1:  # administrador
+                    return redirect(url_for('panel_admin_bp.panel_admin'))
+                elif session['rol'] == 2:  # alumno
+                    return redirect(url_for('panel_alumno_bp.panel_alumno'))
+                else:
+                    return render_template('funciones_de_la_pagina/inicio_de_seccion.html')
             else: # Contraseña ta mal 
                 return render_template('funciones_de_la_pagina/inicio_de_seccion.html')
         else: # Alumno no contrado
