@@ -675,3 +675,122 @@ select[name="facultad"] {
     padding-bottom: 10px;
     
 }
+
+/* CHATBOT FLOTANTE */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.chatbox__button button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.chatbox__button button:hover {
+    transform: scale(1.1);
+}
+
+.chatbox__support {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    background: #f9f9f9;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    z-index: 9998;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.chatbox--active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.chatbox__image--header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chatbox__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgb(129, 67, 236);
+    padding: 10px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.chatbox__content--header {
+    margin-left: 10px;
+}
+
+.chatbox__heading--header{
+    color: #ffffff;
+}
+
+
+/* MESSAGES */
+
+.chatbox__messages {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; 
+    overflow-y: auto;     
+    height: 330px;          
+    scroll-behavior: smooth; 
+}
+
+
+
+
+/* FOOTER */
+.chatbox__footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.chatbox__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: var(--secondaryGradient);
+    box-shadow: var(--secondaryBoxShadow);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 90%;
+    background-color:  rgb(129, 67, 236);
+}
+
+.chatbox__footer input {
+    width: 75%;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.chatbox__send--footer {
+    color:  rgb(0, 0, 0);
+    margin-left: 10px;
+}
+

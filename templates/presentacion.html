@@ -41,6 +41,34 @@
         {% block contacto %}{% endblock %}
     </main>
 
+    <!-- Chat flotante -->
+
+    <div class="chatbox">
+        <div class="chatbox__button">
+            <button id="chat-toggle">
+                <img src="{{ url_for('static', filename='img/chatbox-icon.svg') }}" alt="Abrir Chat" />
+            </button>
+        </div>
+        <div class="chatbox__support" id="chatbox">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://images.emojiterra.com/twitter/512px/1f64e-1f3fb-2642.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Asistente IA</h4>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Haga su pregunta...">
+                <button class="chatbox__send--footer send__button">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Pie de Pagina -->
     <footer>
@@ -69,5 +97,6 @@
     </footer>
 
     <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/chat.js')}}"></script>
 </body>
 </html>
