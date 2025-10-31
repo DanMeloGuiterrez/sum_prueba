@@ -3,19 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatBox = document.querySelector('.chatbox__support');
     const sendButton = document.querySelector('.send__button');
     const inputField = document.querySelector('.chatbox__footer input');
-    const chatMessages = document.querySelector('.chatbox__messages div');
+    const chatMessages = document.querySelector('.chatbox__messages'); 
 
-    // Abrir / cerrar chat
+    // --- Abrir / cerrar chat ---
     chatButton.addEventListener('click', () => {
         chatBox.classList.toggle('chatbox--active');
+        scrollToBottom();
     });
 
-    // Enviar mensaje con botón
+    // --- Enviar mensaje con botón ---
     sendButton.addEventListener('click', () => {
         sendMessage();
     });
 
-    // Enviar con tecla Enter
+    // --- Enviar mensaje con tecla Enter ---
     inputField.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             sendMessage();
@@ -51,6 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const messageElem = document.createElement('p');
         messageElem.innerHTML = `<strong>${sender}:</strong> ${message}`;
         chatMessages.appendChild(messageElem);
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll
+
+        // Espera a que el mensaje se renderice antes de hacer scroll
+        setTimeout(() => {
+            scrollToBottom();
+        }, 50);
+    }
+
+    // --- Scroll automático hacia el último mensaje ---
+    function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 });
