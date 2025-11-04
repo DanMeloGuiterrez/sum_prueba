@@ -117,7 +117,7 @@ def get_chat_response(text):
         - nombre_alumno
         - apellido_alumno
         - codigo
-        - facultad a la que le pertenece mediante su id
+        - facultad_id
         - especialidad
         - periodo_academico
 
