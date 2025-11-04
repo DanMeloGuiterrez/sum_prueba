@@ -15,7 +15,7 @@ app.secret_key = 'secret_key'
 
 # --- Configuracion de Gemini API ---
 genai.configure(api_key="AIzaSyBpS7xVkdvlQStwzerC0yjC4yY5UR02S5I")
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 app.register_blueprint(inicio_de_seccion_bp)
