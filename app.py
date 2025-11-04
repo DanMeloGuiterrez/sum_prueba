@@ -111,21 +111,40 @@ def get_chat_response(text):
         """
 
         prompt_sql = f"""
-        Eres un generador de consultas SQL para MySQL.
-        Basado en este esquema:
+        Eres un asistente experto en bases de datos MySQL.
+        
+        Solo puedes consultar las siguientes columnas de la tabla alumno:
+        - nombre_alumno
+        - apellido_alumno
+        - codigo
+        - facultad a la que le pertenece mediante su id
+        - especialidad
+        - periodo_academico
+
+        Si el usuario pregunta sobre cualquier otro tema en especifico o tabla,
+        responder exactamente "No estoy autorizado pa dar esa informacion"
+
+        Tu tarea es generar consultas SQL seguras y válidas **solo de tipo SELECT** 
+        según el siguiente esquema:
+
         {schema}
 
-        Genera una consulta SELECT que responda lo siguiente:
-        "{text}"
+        Instrucciones:
+        - Usa solo SELECT.
+        - Nunca incluyas INSERT, UPDATE, DELETE, DROP o ALTER.
+        - No adivines nombres de columnas que no estén en el esquema.
+        - Si la pregunta no requiere usar base de datos, responde únicamente con: NO_SQL
 
         Ejemplos:
-        - ¿Cuántos alumnos hay? → SELECT COUNT(*) AS total FROM alumno WHERE id_tipo_usuario = 2;
-        - Muéstrame las facultades → SELECT nombre_facultad FROM facultades;
-        - Qué tipos de usuario existen → SELECT tipo_usuario FROM tipo_usuario;
+        - ¿Cuántos alumnos hay registrados? → SELECT COUNT(*) AS total FROM alumno;
+        - ¿Cuáles son las facultades disponibles? → SELECT nombre_facultad FROM facultades;
+        - Muestra los tipos de usuario → SELECT tipo_usuario FROM tipo_usuario;
 
-        Si la pregunta no requiere base de datos, responde con "NO_SQL".
-        Devuelve SOLO la consulta SQL o NO_SQL.
+        Pregunta del usuario: "{text}"
+
+        Responde solo con la consulta SQL o con "NO_SQL".
         """
+
 
         sql_response = model.generate_content(prompt_sql)
         sql_query = sql_response.text.strip().split("\n")[0]
@@ -135,8 +154,9 @@ def get_chat_response(text):
         if "NO_SQL" in sql_query.upper():
             conexion_base_datos.close()
             prompt = f"""
-            Eres un asistente del Sistema Único de Matrícula (SUM).
-            Responde en español de forma breve, amable y profesional.
+            Eres el asistente oficial del Sistema Único de Matrícula (SUM) de la Universidad Nacional.
+            Tu función es orientar a los alumnos sobre matrículas, programas académicos y procesos administrativos.
+            Responde de forma clara, amable y precisa en español.
             El usuario preguntó: "{text}"
             """
             response = model.generate_content(prompt)
@@ -170,8 +190,12 @@ def get_chat_response(text):
         # --- Interpretar resultados con Gemini ---
         prompt_final = f"""
         El usuario preguntó: "{text}"
-        El resultado SQL fue: {data_str}
-        Explica brevemente la respuesta en español, de manera clara, amable y natural.
+        El resultado obtenido de la base de datos fue: {data_str}
+
+        Eres el asistente oficial del sistema SUM. 
+        Explica al usuario en lenguaje natural lo que significa este resultado,
+        sin usar jerga técnica ni mostrar código SQL.
+        Sé breve, claro y amable en tu explicación.
         """
 
         final_response = model.generate_content(prompt_final)
